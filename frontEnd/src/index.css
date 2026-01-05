@@ -5,6 +5,7 @@
   --void: #050505; /* black(stylish) */
   --border-grey : #262626;
   --lime : #00FF94;
+  --green :rgb(0, 255, 81);
 }
 
 * {

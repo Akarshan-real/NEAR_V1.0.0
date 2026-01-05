@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEAR | Network Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace'],
+                    },
+                    colors: {
+                        signal: '#00FF94', // Sharp Green
+                        void: '#050505',   // Almost Black
+                        panel: '#0A0A0A',  // Dark Gray
+                        line: '#262626',   // Border Color
+                    },
+                    backgroundImage: {
+                        'dot-grid': 'radial-gradient(#262626 1px, transparent 1px)',
+                    },
+                    backgroundSize: {
+                        'dot-grid': '24px 24px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        
+        /* The Technical Grid Background */
+        .bg-dots {
+            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.3;
+        }
+
+        /* Running Ticker Animation */
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Hover Effect for Cards */
+        .grid-card {
+            border: 1px solid #262626;
+            background: #0A0A0A;
+            transition: all 0.2s ease;
+        }
+        .grid-card:hover {
+            border-color: #00FF94;
+            background: #0f0f0f;
+        }
+
+        /* Blinking Cursor */
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <div class="fixed inset-0 bg-dots pointer-events-none z-0"></div>
+
+    <div class="w-full bg-signal text-black font-mono text-xs font-bold py-2 border-b border-signal z-50 relative">
+        <div class="ticker-wrap">
+            <div class="ticker">
+                SYSTEM STATUS: ONLINE /// DISTRICT 01: ACTIVE /// NO GLOBAL FEEDS DETECTED /// VERIFIED HUMANS ONLY /// LATENCY: 12ms /// SYSTEM STATUS: ONLINE /// DISTRICT 01: ACTIVE /// NO GLOBAL FEEDS DETECTED /// VERIFIED HUMANS ONLY /// LATENCY: 12ms ///
+            </div>
+        </div>
+    </div>
+
+    <nav class="w-full border-b border-line bg-void/90 backdrop-blur z-40 relative">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-signal"></div> <span class="font-bold tracking-tight text-xl">NEAR PROTOCOL</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-mono text-xs tracking-wider text-gray-400">
+                <a href="#" class="hover:text-signal transition uppercase">01. Architecture</a>
+                <a href="#" class="hover:text-signal transition uppercase">02. Governance</a>
+                <a href="#" class="hover:text-signal transition uppercase">03. Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative z-10 py-24 px-6 border-b border-line">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div>
+                <div class="font-mono text-signal text-xs mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-signal animate-pulse"></span>
+                    LIVE OPERATING SYSTEM
+                </div>
+                <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                    A CITY<br>
+                    WITHOUT<br>
+                    <span class="text-gray-600">NOISE.</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-md leading-relaxed mb-8 font-light">
+                    We are replacing social media with civic infrastructure. No influencers. No algorithms. Just your block.
+                </p>
+                <div class="flex items-center gap-4">
+                    <button class="bg-signal text-black px-8 py-4 font-mono text-sm font-bold hover:bg-white transition flex items-center gap-2">
+                        [ INITIATE_SETUP ]
+                    </button>
+                    <div class="text-xs font-mono text-gray-500">
+                        EST. TIME: 2 MIN<br>
+                        VERIFICATION REQ.
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative border border-line bg-panel p-6">
+                <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-signal"></div>
+                <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-signal"></div>
+                <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-signal"></div>
+                <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-signal"></div>
+
+                <div class="font-mono text-xs text-gray-500 mb-4 border-b border-line pb-2 flex justify-between">
+                    <span>NEAR_AI_CORE // TERMINAL</span>
+                    <span>ID: 9942-X</span>
+                </div>
+                
+                <div class="space-y-3 font-mono text-sm">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Request:</span>
+                        <span class="text-white">"Pipe burst in Kitchen"</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Scanning Radius:</span>
+                        <span class="text-signal">300 meters</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Skill Match:</span>
+                        <span class="text-white">[PLUMBER]</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Matches Found:</span>
+                        <span class="text-signal">3 Neighbors</span>
+                    </div>
+                    <div class="mt-4 p-2 bg-void border border-line text-gray-400 text-xs">
+                        > Routing request to User_ID_88... <span class="cursor-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative z-10 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-line border-b border-line bg-void">
+            
+            <div class="p-10 group hover:bg-white/5 transition duration-300">
+                <div class="w-10 h-10 border border-line bg-panel flex items-center justify-center mb-6 group-hover:border-signal transition">
+                    <span class="font-mono text-signal">01</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">The Block</h3>
+                <p class="text-sm text-gray-400 font-mono leading-relaxed">
+                    A discrete unit of 30-300 households. Strictly verified. Defined by physical walkability.
+                </p>
+            </div>
+
+            <div class="p-10 group hover:bg-white/5 transition duration-300">
+                <div class="w-10 h-10 border border-line bg-panel flex items-center justify-center mb-6 group-hover:border-signal transition">
+                    <span class="font-mono text-signal">02</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Trust Layer</h3>
+                <p class="text-sm text-gray-400 font-mono leading-relaxed">
+                    Identity-first verification. Reputation is immutable and stored on the ledger. No bots.
+                </p>
+            </div>
+
+            <div class="p-10 group hover:bg-white/5 transition duration-300">
+                <div class="w-10 h-10 border border-line bg-panel flex items-center justify-center mb-6 group-hover:border-signal transition">
+                    <span class="font-mono text-signal">03</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Silent SOS</h3>
+                <p class="text-sm text-gray-400 font-mono leading-relaxed">
+                    Direct line to Safety Marshals. Bypass traditional networks. 12ms response latency.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="border-b border-line bg-panel py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center font-mono">
+            <div>
+                <div class="text-3xl font-bold text-white mb-1">0%</div>
+                <div class="text-xs text-gray-500 uppercase">Spam</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-white mb-1">100%</div>
+                <div class="text-xs text-gray-500 uppercase">Verified</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-white mb-1">300m</div>
+                <div class="text-xs text-gray-500 uppercase">Max Radius</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                <div class="text-xs text-gray-500 uppercase">Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 text-center">
+        <p class="font-mono text-xs text-gray-600">
+            NEAR PROTOCOL © 2025. SYSTEM ARCHITECTURE V1.0
+        </p>
+    </footer>
+
+</body>
+</html>

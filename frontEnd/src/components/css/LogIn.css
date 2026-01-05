@@ -1,39 +1,39 @@
-#SignUp {
+#LogIn {
     background-image: radial-gradient(#333 1px, transparent 1px);
     background-color: var(--void);
     background-size: 32px 32px;
     color: white;
 }
-#SignUp label {
+#LogIn label {
     transition: all 250ms ease-in-out;
 }
-#signInName:focus + label,
-#signInPassword:focus + label {
+#logInName:focus + label,
+#logInPassword:focus + label {
   top: 0.5rem;
   transform: translateY(0);
   font-size: 0.75rem;
   color: var(--lime);
 }
-#SignUp .relative:focus-within button {
+#LogIn .relative:focus-within button {
   border-left: 1px solid var(--lime);
 }
-#signInName:not(:placeholder-shown) + label,
-#signInPassword:not(:placeholder-shown) + label {
+#logInName:not(:placeholder-shown) + label,
+#logInPassword:not(:placeholder-shown) + label {
   top: 0.5rem;
   transform: translateY(0);
   font-size: 0.75rem;
 }
-#signInName,
-#signInPassword {
+#logInName,
+#logInPassword {
     transition: background-color 250ms ease-in-out,
     outline 250ms ease-in-out;
 }
-#signInName:hover,
-#signInPassword:hover {
+#logInName:hover,
+#logInPassword:hover {
     background-color: #0b0b0b;
 }
-#signInName:focus,
-#signInPassword:focus {
+#logInName:focus,
+#logInPassword:focus {
     background-color: #0b0b0b;
     outline-color: var(--lime);
 }

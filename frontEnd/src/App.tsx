@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='bg-[var(--void)]'>
       <Navbar />
-      <main className='w-full h-28'></main>
+      <main className='w-full h-screen'></main>
       <Footer />
     </div>
   )
