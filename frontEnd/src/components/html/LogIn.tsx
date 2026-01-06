@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import '../css/LogIn.css'
+import { dottedBg } from '../../Styles';
 import { type FormField } from '../../Types';
 
 const LogIn = () => {
@@ -13,11 +14,11 @@ const LogIn = () => {
       throw new Error();
       console.log(data);
     } catch (error) {
-      setError("root", { message: "This username is already taken" })
+      setError("root", { message: "Wrong password or user name" })
     }
   }
   return (
-    <div className='w-screen h-screen flex-mid' id='LogIn'>
+    <div className='w-screen h-screen flex-mid text-white' style={dottedBg} id='LogIn'>
       <div className='w-4/5 md:w-[30%] h-2/3 md:h-2/5 rounded-3xl outline-2 outline-white outline-offset-[2.5rem] bg-(--void)'>
         <form
           className='w-full h-full rounded-3xl flex flex-col justify-center items-center gap-10'

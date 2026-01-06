@@ -7,7 +7,7 @@ import Footer from './components/html/Footer'
 function App() {
 
   return (
-    <div className='bg-[var(--void)]'>
+    <div className='bg-(--void)'>
       <Navbar />
       <main className='w-full h-screen'></main>
       <Footer />

@@ -1,9 +1,3 @@
-#LogIn {
-    background-image: radial-gradient(#333 1px, transparent 1px);
-    background-color: var(--void);
-    background-size: 32px 32px;
-    color: white;
-}
 #LogIn label {
     transition: all 250ms ease-in-out;
 }
