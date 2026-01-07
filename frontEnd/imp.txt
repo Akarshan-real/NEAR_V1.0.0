@@ -1,1 +1,0 @@
-bg img - radial-gradient(#333 1px, transparent 1px);

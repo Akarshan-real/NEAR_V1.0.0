@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
+import { Link } from 'react-router-dom';
 import '../css/LogIn.css'
 import { dottedBg } from '../../Styles';
 import { type FormField } from '../../Types';
@@ -64,10 +65,13 @@ const LogIn = () => {
               className='absolute rounded-tr-2xl rounded-br-2xl right-0 h-full px-4 border-l border-(--border-grey) cursor-pointer top-1/2 -translate-y-1/2 transition-colors duration-200 ease-in-out'
               onClick={() => { setIsLooking(prev => !prev) }} type="button">{isLooking ? "Hide" : "Show"}</button>
           </div>
-          <button type="submit"
-            className='cursor-pointer flex-mid bg-green-600 hover:bg-(--green) w-1/2 min-h-10 h-12 text-2xl rounded-4xl transition-colors duration-250 ease-in-out'
-            disabled={isSubmitting}
-          >{isSubmitting ? "Loading..." : "Log In"}</button>
+          <div className='flex-mid flex-col gap-4'>
+            <button type="submit"
+              className='cursor-pointer flex-mid bg-green-600 hover:bg-(--green) w-1/2 min-h-10 h-12 text-2xl rounded-4xl transition-colors duration-250 ease-in-out'
+              disabled={isSubmitting}
+            >{isSubmitting ? "Loading..." : "Log In"}</button>
+            <div>Don't have an account yet ? <Link to={'/signup'} className='text-(--green) hover:underline underline-offset-4'>Create an account</Link></div>
+          </div>
         </form>
       </div>
     </div>
