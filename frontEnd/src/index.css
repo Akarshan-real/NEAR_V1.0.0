@@ -6,6 +6,7 @@
   --border-grey : #262626;
   --lime : #00FF94;
   --green :rgb(0, 255, 81);
+  --half-bg : rgba(0, 0, 0, 0.702);
 }
 
 * {

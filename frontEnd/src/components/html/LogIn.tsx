@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../css/LogIn.css'
 import { dottedBg } from '../../Styles';
 import { type FormField } from '../../Types';
 
 const LogIn = () => {
   const [isLooking, setIsLooking] = useState(false);
+  const navigate = useNavigate();
 
   const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm<FormField>();
 
   const onSubmit: SubmitHandler<FormField> = async (data) => {
     try {
-      throw new Error();
       console.log(data);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      navigate('/');
     } catch (error) {
       setError("root", { message: "Wrong password or user name" })
     }
