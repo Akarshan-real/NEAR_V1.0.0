@@ -1,0 +1,38 @@
+#logInButton:hover {
+    transform: translateX(10px);
+}
+#signInButton:hover {
+    transform: translateX(-10px);
+}
+#logInButton:active {
+    transform: translateX(15px);
+}
+#signInButton:active {
+    transform: translateX(-15px);
+}
+#logInButton::after,
+#signInButton::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    top: 0;
+    transition: width 200ms ease-in,
+                color 100ms ease-in-out;
+    z-index: 1;
+}
+#logInButton::after {
+    right: 0;
+}
+#signInButton::after {
+    left: 0;
+}
+#logInButton:hover::after,
+#signInButton:hover::after {
+    width: 100%;
+}
+#logInButton:active::after,
+#signInButton:active::after {
+    background-color: #b8ffe1;
+}

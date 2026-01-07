@@ -1,0 +1,33 @@
+#LogIn label {
+    transition: all 250ms ease-in-out;
+}
+#logInName:focus + label,
+#logInPassword:focus + label {
+  top: 0.5rem;
+  transform: translateY(0);
+  font-size: 0.75rem;
+  color: var(--lime);
+}
+#LogIn .relative:focus-within button {
+  border-left: 1px solid var(--lime);
+}
+#logInName:not(:placeholder-shown) + label,
+#logInPassword:not(:placeholder-shown) + label {
+  top: 0.5rem;
+  transform: translateY(0);
+  font-size: 0.75rem;
+}
+#logInName,
+#logInPassword {
+    transition: background-color 250ms ease-in-out,
+    outline 250ms ease-in-out;
+}
+#logInName:hover,
+#logInPassword:hover {
+    background-color: #0b0b0b;
+}
+#logInName:focus,
+#logInPassword:focus {
+    background-color: #0b0b0b;
+    outline-color: var(--lime);
+}
