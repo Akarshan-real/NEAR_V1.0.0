@@ -4,8 +4,9 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import LogIn from "./components/html/LogIn";
 import SignUp from "./components/html/SignUp";
-import Error from "./components/html/Error";
 import Profile from "./components/html/Profile";
+import Error from "./components/html/Extra/Error";
+import Loader from "./components/html/Extra/Loader";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,9 @@ export const router = createBrowserRouter([
         path: "/signup", element: <SignUp />
     },
     {
-        path: '/profile', element: <Profile />
+        path: '/profile', element: <Profile userName={"CoolGuy"} password={"12345"} />
+    },
+    {
+        path : '/loading' , element : <Loader />
     }
 ]);

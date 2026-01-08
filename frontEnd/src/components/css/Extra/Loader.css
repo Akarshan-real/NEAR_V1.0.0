@@ -1,0 +1,54 @@
+#loaderHolder div {
+    position : absolute;
+    width : 50%;
+    height : 50%;
+    background-color : var(--lime);
+    border-color: black;
+}
+#topLeft {
+    top: 0;
+    left : 0;
+    border-right : 1px solid   ;
+    border-bottom : 1px solid  ; 
+}
+#topRight {
+    top:0;
+    right:0;
+    border-left : 1px solid   ;
+    border-bottom : 1px solid  ;
+}
+#bottomLeft {
+    bottom:0;
+    left:0;
+    border-right : 1px solid   ;
+    border-top : 1px solid  ;
+}
+#bottomRight {
+    bottom:0;
+    right:0;
+    border-left : 1px solid   ;
+    border-top : 1px solid  ;
+}
+
+
+@keyframes centerRotate {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  20% { transform: rotate(90deg); }
+  25% { transform: rotate(90deg); }
+
+  25% { animation-timing-function: ease-out; }
+  45% { transform: rotate(180deg); }
+  50% { transform: rotate(180deg); }
+
+  50% { animation-timing-function: ease-out; }
+  70% { transform: rotate(270deg); }
+  75% { transform: rotate(270deg); }
+
+  75% { animation-timing-function: ease-out; }
+  95% { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
+}
