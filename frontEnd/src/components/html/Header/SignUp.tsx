@@ -2,21 +2,22 @@ import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import '../css/SignUp.css'
-import { dottedBg } from '../../Styles';
-import { type FormField } from '../../Types';
+import { dottedBg } from '../../../Styles';
+import { type FormField } from '../../../Types';
+import { useAuth } from '../../../contexts/Auth/useAuth';
 
 const SignUp = () => {
   const [isLooking, setIsLooking] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm<FormField>();
 
   const onSubmit: SubmitHandler<FormField> = async (data) => {
     try {
       console.log(data);
-
-      
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      login(data.userName);
       navigate('/');
     } catch (error) {
       setError("root", { message: "This username is already taken" })
@@ -39,11 +40,11 @@ const SignUp = () => {
                 validate: (value): string | boolean => { return /^[a-zA-Z0-9._ ]+$/.test(value) || "Only letters, numbers, dot (.) and underscore (_) are allowed" }
               })}
               className={`w-full h-full pl-5 outline-1 outline-(--border-grey) rounded-2xl`}
-              type="text" id="signInName"
+              type="text" id="signUpName"
               autoComplete='off' />
             <label
               className='absolute left-5 top-1/2 -translate-y-1/2 cursor-text'
-              htmlFor="signInName">Enter username
+              htmlFor="signUpName">Enter username
             </label>
             {errors.userName && <div className='translate-x-5 translate-y-2 text-red-600'>{errors.userName.message}</div>}
             {errors.root && <div className='translate-x-5 translate-y-2 text-red-600'>{errors.root.message}</div>}
@@ -58,11 +59,11 @@ const SignUp = () => {
                 validate: (value): string | boolean => { return /\d/.test(value) ? true : "Password must contain 1 number" }
               })}
               className={`w-full h-full pl-5 outline-1 outline-(--border-grey) rounded-2xl`}
-              type={isLooking ? "text" : "password"} id="signInPassword"
+              type={isLooking ? "text" : "password"} id="signUpPassword"
               autoComplete='off' />
             <label
               className='absolute left-5 top-1/2 -translate-y-1/2 cursor-text'
-              htmlFor="signInPassword">Create password
+              htmlFor="signUpPassword">Create password
             </label>
             {errors.password && <div className='translate-x-5 translate-y-2 text-red-600'>{errors.password.message}</div>}
             <button

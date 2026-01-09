@@ -1,39 +1,16 @@
 import { useState, useEffect } from "react";
-import { dottedBg } from "../../Styles";
+import { dottedBg } from "../../../Styles";
 import { Eye, EyeOff, Asterisk } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
-import { type queryDetails, type FormField } from "../../Types";
+import { type queryDetails } from "../../../Types";
+import { useAuth } from "../../../contexts/Auth/useAuth";
 
-const Profile = ({ userName, password }: FormField) => {
+const Profile = () => {
+    const { userName , logout } = useAuth();
     const [logOutPopUp, setLogOutPopUp] = useState(false);
     const [showPass, setShowPass] = useState(false);
     const [details, setDetails] = useState<queryDetails | null>(null);
     const navigate = useNavigate();
-
-    const API = {
-        "URL" : import.meta.env.VITE_API_URL,
-        "KEY" : import.meta.env.VITE_API_KEY
-    } as const ;
-
-    // useEffect(() => {
-    //     (async function fetchData() {
-    //         try {
-    //             const resposnse = await fetch(API.URL , 
-    //             { method : "GET" , headers : { "Content-Type" : "application/json" , "x-api-key" : API.KEY } });
-    //             if (resposnse.ok) {
-    //                 const data = await resposnse.json();
-    //                 setDetails(data);
-    //             }
-    //         } catch (error: unknown) {
-    //             if (error instanceof Error) {
-    //                 console.log(error.message);
-    //             }
-    //             else {
-    //                 console.log(error);
-    //             }
-    //         }
-    //     })()
-    // }, []);
 
     useEffect(() => {
         setDetails({
@@ -42,8 +19,8 @@ const Profile = ({ userName, password }: FormField) => {
         })
     }, [])
 
-
     const exitApp = () => {
+        logout();
         setLogOutPopUp(false);
         navigate('/');
     }
@@ -52,7 +29,7 @@ const Profile = ({ userName, password }: FormField) => {
         <div className="w-full h-screen flex-mid" style={dottedBg}>
             <div className="w-4/5 md:w-2/5 h-4/5 bg-(--void) flex items-center justify-around flex-col rounded-2xl border-2 border-white">
                 <div className="flex-mid flex-col gap-5">
-                    <div className="text-center text-white font-bold text-5xl">Cool username</div>
+                    <div className="text-center text-white font-bold text-5xl">{userName || `Anonymous`}</div>
 
                     <div className="text-gray-500 font-bold relative rounded-3xl border border-(--border-grey) h-10 min-w-1/2 hover:border-white transition-colors duration-200 ease-in-out">
                         <span className="absolute top-1/2 left-3 translate-y-[-50%] cursor-context-menu">

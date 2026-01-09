@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useNavigate, Link } from 'react-router-dom';
 import '../css/LogIn.css'
-import { dottedBg } from '../../Styles';
-import { type FormField } from '../../Types';
+import { dottedBg } from '../../../Styles';
+import { type FormField } from '../../../Types';
+import { useAuth } from '../../../contexts/Auth/useAuth';
 
 const LogIn = () => {
+  const { login } = useAuth();
+
   const [isLooking, setIsLooking] = useState(false);
   const navigate = useNavigate();
 
@@ -13,6 +16,7 @@ const LogIn = () => {
 
   const onSubmit: SubmitHandler<FormField> = async (data) => {
     try {
+      login(data.userName);
       console.log(data);
       await new Promise((resolve) => setTimeout(resolve, 1000));
       navigate('/');

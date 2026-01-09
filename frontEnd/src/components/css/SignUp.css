@@ -1,8 +1,8 @@
 #SignUp label {
     transition: all 250ms ease-in-out;
 }
-#signInName:focus + label,
-#signInPassword:focus + label {
+#signUpName:focus + label,
+#signUpPassword:focus + label {
   top: 0.5rem;
   transform: translateY(0);
   font-size: 0.75rem;
@@ -11,23 +11,23 @@
 #SignUp .relative:focus-within button {
   border-left: 1px solid var(--lime);
 }
-#signInName:not(:placeholder-shown) + label,
-#signInPassword:not(:placeholder-shown) + label {
+#signUpName:not(:placeholder-shown) + label,
+#signUpPassword:not(:placeholder-shown) + label {
   top: 0.5rem;
   transform: translateY(0);
   font-size: 0.75rem;
 }
-#signInName,
-#signInPassword {
+#signUpName,
+#signUpPassword {
     transition: background-color 250ms ease-in-out,
     outline 250ms ease-in-out;
 }
-#signInName:hover,
-#signInPassword:hover {
+#signUpName:hover,
+#signUpPassword:hover {
     background-color: #0b0b0b;
 }
-#signInName:focus,
-#signInPassword:focus {
+#signUpName:focus,
+#signUpPassword:focus {
     background-color: #0b0b0b;
     outline-color: var(--lime);
 }

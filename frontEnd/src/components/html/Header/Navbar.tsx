@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import '../css/Navbar.css'
+import { useAuth } from '../../../contexts/Auth/useAuth';
+
 const Navbar = () => {
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const { isLoggedIn } = useAuth();
   const [threeLinesState, setThreeLinesState] = useState(false);
   const navigate = useNavigate();
 
@@ -39,8 +41,8 @@ const Navbar = () => {
           </div>)
         }
         {isLoggedIn &&
-          (<div 
-          className={`h-screen w-4/5 sm:w-1/2 md:w-2/5 fixed top-0 right-0 bg-(--void)  
+          (<div
+            className={`h-screen w-4/5 sm:w-1/2 md:w-2/5 fixed top-0 right-0 bg-(--void)  
           ${threeLinesState ? "translate-x-0" : "translate-x-full"}
           transition-transform duration-300 ease-in-out`}>
             {/* will add stuff */}

@@ -1,9 +1,12 @@
+#loaderHolder {
+    animation: centerRotate 1.6s infinite;
+    transform-origin: center;
+}
 #loaderHolder div {
     position : absolute;
-    width : 50%;
-    height : 50%;
     background-color : var(--lime);
     border-color: black;
+    animation: cubePop 1.6s infinite ease-in-out;
 }
 #topLeft {
     top: 0;
@@ -30,25 +33,44 @@
     border-top : 1px solid  ;
 }
 
-
 @keyframes centerRotate {
-  0% {
-    transform: rotate(0deg);
-    animation-timing-function: ease-out;
-  }
-
-  20% { transform: rotate(90deg); }
-  25% { transform: rotate(90deg); }
-
-  25% { animation-timing-function: ease-out; }
-  45% { transform: rotate(180deg); }
-  50% { transform: rotate(180deg); }
-
-  50% { animation-timing-function: ease-out; }
-  70% { transform: rotate(270deg); }
-  75% { transform: rotate(270deg); }
-
-  75% { animation-timing-function: ease-out; }
-  95% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
+    100%{
+        transform: rotate(360deg);
+    }
 }
+
+#topLeft     { --dx: -50%; --dy: -50%; }
+#topRight    { --dx:  50%; --dy: -50%; }
+#bottomLeft  { --dx: -50%; --dy:  50%; }
+#bottomRight { --dx:  50%; --dy:  50%; }
+
+@keyframes cubePop {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  20% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(var(--dx), var(--dy));
+  }
+  45% {
+    transform: translate(var(--dx), var(--dy));
+  }
+  50% {
+    transform: translate(0%, 0%);
+  }
+  70% {
+    transform: translate(0%, 0%);
+  }
+  75% {
+    transform: translate(var(--dx), var(--dy));
+  }
+  95% {
+    transform: translate(var(--dx), var(--dy));
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
