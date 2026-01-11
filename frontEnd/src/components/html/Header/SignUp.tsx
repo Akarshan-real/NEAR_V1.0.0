@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-import '../css/SignUp.css'
+import '../../css/SignUp.css'
 import { dottedBg } from '../../../Styles';
 import { type FormField } from '../../../Types';
 import { useAuth } from '../../../contexts/Auth/useAuth';

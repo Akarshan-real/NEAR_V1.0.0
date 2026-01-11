@@ -7,6 +7,7 @@ import SignUp from "./components/html/Header/SignUp";
 import Profile from "./components/html/Header/Profile";
 import Error from "./components/html/Extra/Error";
 import Loader from "./components/html/Extra/Loader";
+import NewLoader from "./components/html/Extra/newLoader";
 
 export const router = createBrowserRouter([
     {
