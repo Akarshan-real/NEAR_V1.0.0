@@ -1,37 +1,36 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { useNavigate, Link } from 'react-router-dom';
-import '../../css/LogIn.css'
-import { dottedBg } from '../../../Styles';
-import { type FormField } from '../../../Types';
-import { useAuth } from '../../../contexts/Auth/useAuth';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/css/SignUp.css'
+import { dottedBg } from '../../styles/Styles';
+import { type FormField } from '../../types/Types';
+import { useAuth } from '../../contexts/Auth/useAuth';
 
-const LogIn = () => {
-  const { login } = useAuth();
-
+const SignUp = () => {
   const [isLooking, setIsLooking] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm<FormField>();
 
   const onSubmit: SubmitHandler<FormField> = async (data) => {
     try {
-      login(data.userName);
       console.log(data);
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      login(data.userName);
       navigate('/');
     } catch (error) {
-      setError("root", { message: "Wrong password or user name" })
+      setError("root", { message: "This username is already taken" })
     }
   }
   return (
-    <div className='w-screen h-screen flex-mid text-white' style={dottedBg} id='LogIn'>
+    <div className='w-screen h-screen flex-mid text-white' style={dottedBg} id='SignUp'>
       <div className='w-4/5 md:w-[30%] h-2/3 md:h-2/5 rounded-3xl outline-2 outline-white outline-offset-[2.5rem] bg-(--void)'>
         <form
           className='w-full h-full rounded-3xl flex flex-col justify-center items-center gap-10'
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h2 className='text-4xl font-bold text-center'>Log in for NEAR</h2>
+          <h2 className='text-4xl font-bold text-center'>Sign Up for NEAR</h2>
           {/* Username */}
           <div className='relative w-11/12 h-[15%]'>
             <input
@@ -41,11 +40,11 @@ const LogIn = () => {
                 validate: (value): string | boolean => { return /^[a-zA-Z0-9._ ]+$/.test(value) || "Only letters, numbers, dot (.) and underscore (_) are allowed" }
               })}
               className={`w-full h-full pl-5 outline-1 outline-(--border-grey) rounded-2xl`}
-              type="text" id="logInName"
+              type="text" id="signUpName"
               autoComplete='off' />
             <label
               className='absolute left-5 top-1/2 -translate-y-1/2 cursor-text'
-              htmlFor="logInName">Enter username
+              htmlFor="signUpName">Enter username
             </label>
             {errors.userName && <div className='translate-x-5 translate-y-2 text-red-600'>{errors.userName.message}</div>}
             {errors.root && <div className='translate-x-5 translate-y-2 text-red-600'>{errors.root.message}</div>}
@@ -60,28 +59,25 @@ const LogIn = () => {
                 validate: (value): string | boolean => { return /\d/.test(value) ? true : "Password must contain 1 number" }
               })}
               className={`w-full h-full pl-5 outline-1 outline-(--border-grey) rounded-2xl`}
-              type={isLooking ? "text" : "password"} id="logInPassword"
+              type={isLooking ? "text" : "password"} id="signUpPassword"
               autoComplete='off' />
             <label
               className='absolute left-5 top-1/2 -translate-y-1/2 cursor-text'
-              htmlFor="logInPassword">Enter password
+              htmlFor="signUpPassword">Create password
             </label>
             {errors.password && <div className='translate-x-5 translate-y-2 text-red-600'>{errors.password.message}</div>}
             <button
               className='absolute rounded-tr-2xl rounded-br-2xl right-0 h-full px-4 border-l border-(--border-grey) cursor-pointer top-1/2 -translate-y-1/2 transition-colors duration-200 ease-in-out'
               onClick={() => { setIsLooking(prev => !prev) }} type="button">{isLooking ? "Hide" : "Show"}</button>
           </div>
-          <div className='flex-mid flex-col gap-4'>
-            <button type="submit"
-              className='cursor-pointer flex-mid bg-green-600 hover:bg-(--green) w-1/2 min-h-10 h-12 text-2xl rounded-4xl transition-colors duration-250 ease-in-out'
-              disabled={isSubmitting}
-            >{isSubmitting ? "Loading..." : "Log In"}</button>
-            <div>Don't have an account yet ? <Link to={'/signup'} className='text-(--green) hover:underline underline-offset-4'>Create an account</Link></div>
-          </div>
+          <button type="submit"
+            className='cursor-pointer flex-mid bg-green-600 hover:bg-(--green) w-1/2 min-h-10 h-12 text-2xl rounded-4xl transition-colors duration-250 ease-in-out'
+            disabled={isSubmitting}
+          >{isSubmitting ? "Loading..." : "Sign Up"}</button>
         </form>
       </div>
     </div>
   )
 }
 
-export default LogIn
+export default SignUp

@@ -1,5 +1,5 @@
-import { dottedBg } from '../../../Styles'
-import '../../css/Extra/Loader.css'
+import { dottedBg } from '../../styles/Styles'
+import '../../styles/css/Extra/Loader.css'
 
 const Loader = () => {
   const size : number = 100;

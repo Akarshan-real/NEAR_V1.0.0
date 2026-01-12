@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { dottedBg } from "../../../Styles";
+import { dottedBg } from "../../styles/Styles";
 import { Eye, EyeOff, Asterisk } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
-import { type queryDetails } from "../../../Types";
-import { useAuth } from "../../../contexts/Auth/useAuth";
+import { type queryDetails } from "../../types/Types";
+import { useAuth } from "../../contexts/Auth/useAuth";
 
 const Profile = () => {
     const { userName , logout } = useAuth();

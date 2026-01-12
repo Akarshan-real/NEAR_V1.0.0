@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { dottedBg } from "../../../Styles";
+import { dottedBg } from "../../styles/Styles";
 
 const Error = () => {
     return (
