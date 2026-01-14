@@ -12,4 +12,4 @@ Open terminal then type
 And if you changed something and want to commit then type
 - ``` git add . ```
 - ``` git commit -m "Your message" ```
-- ``` git push origin main ```
+- ``` git push -u origin main ```
