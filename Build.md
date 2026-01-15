@@ -1,6 +1,6 @@
 # For Testing
 
-## Warning -  [Dont change any .config or .env file]
+## Warning -  [Dont change any .config or .env file or create any new branches without asking]
 
 ### For FrontEnd
 
