@@ -7,13 +7,13 @@ export const useAuth = () => {
     throw new Error("useAuth must be used inside AuthProvider");
   }
 
-  const { isLoggedIn, setIsLoggedIn , userName , setUserName } = ctx;
+  const { isLoggedIn, setIsLoggedIn, userName, setUserName } = ctx;
 
-  const login = (name:string) => {
+  const login = (name: string) => {
     setIsLoggedIn(true);
     setUserName(name);
     localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("userName",name);
+    localStorage.setItem("userName", name);
   };
 
   const logout = () => {
