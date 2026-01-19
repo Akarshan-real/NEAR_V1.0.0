@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import '../../styles/css/Navbar.css'
 import { useAuth } from '../../contexts/Auth/useAuth';
-import { useDelayedNavigate } from '../../hooks/useDelayedNavigate';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const go = useDelayedNavigate();
+  const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
   const [threeLinesState, setThreeLinesState] = useState(false);
 
@@ -19,18 +19,18 @@ const Navbar = () => {
           <div className="flex gap-1 md:gap-8 h-full">
             <button id='logInButton'
               className="transition-transform duration-200 ease-in relative overflow-hidden h-full px-4 border cursor-pointer rounded-[3px] bg-(--lime)" type="button"
-              onClick={() => go('/login')}
+              onClick={() => navigate('/login')}
             ><span className='relative z-10 break-keep whitespace-nowrap'>Log In</span></button>
             <button id='signInButton'
               className="transition-transform duration-200 ease-in relative overflow-hidden h-full px-4 border cursor-pointer rounded-[3px] bg-(--lime)" type="button"
-              onClick={() => go('/signup')}
+              onClick={() => navigate('/signup')}
             ><span className='relative z-10 break-keep whitespace-nowrap'>Sign Up</span></button>
           </div>
         }
         {
           isLoggedIn &&
           (<div className="flex gap-1 md:gap-8 h-full">
-            <button onClick={() => go('/profile')}>Profile</button>
+            <button onClick={() => navigate('/profile')}>Profile</button>
             <button className='relative z-20' type="button" onClick={() => setThreeLinesState(prev => !prev)}>
               <svg className='text-(--lime)' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 5L20 5" />

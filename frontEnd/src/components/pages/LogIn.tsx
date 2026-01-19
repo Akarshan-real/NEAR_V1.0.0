@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useForm, type SubmitHandler } from 'react-hook-form'
+import axios from 'axios';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import '../../styles/css/LogIn.css'
+import '../../styles/css/LogIn.css';
 import { dottedBg } from '../../styles/Styles';
 import { type FormField } from '../../types/Types';
 import { useAuth } from '../../contexts/Auth/useAuth';
@@ -24,6 +25,7 @@ const LogIn = () => {
       setError("root", { message: "Wrong password or user name" })
     }
   }
+  
   return (
     <div className='w-screen h-screen flex-mid text-white' style={dottedBg} id='LogIn'>
       <div className='w-4/5 md:w-[30%] h-2/3 md:h-2/5 rounded-3xl outline-2 outline-white outline-offset-[2.5rem] bg-(--void)'>

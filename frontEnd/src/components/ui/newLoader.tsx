@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState , useLayoutEffect } from "react";
 import { dottedBg } from "../../styles/Styles"
 import logo from "/src/assets/NEAR_LOGO-nobg.svg";
 
@@ -6,13 +6,13 @@ const NewLoader = () => {
 
   const [width, setWidth] = useState(window.innerWidth)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const onResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const targetWidth = width < 640 ? 200 : 287;
 
     const style_ = document.createElement('style');
