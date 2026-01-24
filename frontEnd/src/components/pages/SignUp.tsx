@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/css/SignUp.css'
 import { dottedBg } from '../../styles/Styles';
 import { type FormField } from '../../types/Types';
@@ -74,6 +74,7 @@ const SignUp = () => {
             className='cursor-pointer flex-mid bg-green-600 hover:bg-(--green) w-1/2 min-h-10 h-12 text-2xl rounded-4xl transition-colors duration-250 ease-in-out'
             disabled={isSubmitting}
           >{isSubmitting ? "Loading..." : "Sign Up"}</button>
+          <Link to='/login' className='mx-auto text-(--green) hover:underline'>Already have an account ? Log In</Link>
         </form>
       </div>
     </div>
